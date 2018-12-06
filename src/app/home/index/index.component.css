@@ -1,0 +1,22 @@
+.home {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around
+ }
+
+
+.leftContainer {
+  flex-basis: 48%;
+  height : 340px;
+  margin-bottom : 20px;
+  
+}
+
+.rightContainer {
+  flex-basis: 50%;
+  height: 340px;
+  margin-bottom: 20px;
+}
+
+
+

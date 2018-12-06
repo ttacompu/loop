@@ -1,0 +1,19 @@
+
+.flexItem {
+  flex: 1;
+  display: flex;
+  align-items: center
+}
+
+
+.rightAlign {
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.itemContainer {
+  display: flex;
+  height: 45px;
+  align-content: stretch;
+  border-bottom: 1px solid #ddd;
+}

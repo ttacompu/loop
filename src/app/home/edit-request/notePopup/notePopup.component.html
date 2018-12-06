@@ -1,0 +1,88 @@
+<kendo-dialog title="{{dialogTitle}}" *ngIf="isOpen" (close)="notePopupWindowClose()" [width]="800" [height]="600">
+  <!--<p>{{data | json}}</p>-->
+  <br />
+  <div class="popupNoteContainer" *ngIf="(viewType == 'Add' || viewType == 'Edit')">
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="createNoteForm" novalidate (ngSubmit)="NoteFormSave()">
+          <div class="content clear">
+            <div class="form-group" *ngIf="data.isSharedWithProfDevelopment">
+              <span class="attentionMag">*Attention This note is visible by Professional Development team</span>
+            </div>
+            <div class="form-group">
+              <kendo-textbox-container floatingLabel="Note Subject *" class="requestWidth">
+                <input kendoTextBox type="text" formControlName="title" />
+              </kendo-textbox-container>              
+            </div>
+            <div class="form-group">
+              <kendo-textbox-container floatingLabel="Note details *" class="fullWidth">
+                <textarea formControlName="details" kendoTextArea class="k-textbox detailTextAreaHeight" rows="3" name="details"></textarea>
+              </kendo-textbox-container>
+              <span class="help-block" *ngIf="errorMessages.details">
+                {{errorMessages.details}}
+              </span>
+            </div>
+            <div class="iManageContainer">
+              <div style="height:45px;">
+                <kendo-textbox-container class="iMangeMarginRight iManageDocInput iManageWidth" floatingLabel="iManage Doc #">
+                  <input kendoTextBox type="number" formControlName="iManageDocNumber" />
+                </kendo-textbox-container>
+                <span class="help-block" *ngIf="errorMessages.iManageDocNumber">
+                  {{errorMessages.iManageDocNumber}}
+                </span>
+              </div>
+              <span class="iMangeMarginRight">in </span>
+
+              <div class="serverContainer">
+                <span class="iManagelibLabel">Choose a server</span>
+                <div>
+                  <kendo-combobox [valuePrimitive]="true" [data]="libList" [textField]="'name'" [valueField]="'id'" class="iManagelibWidth" formControlName="iManageServer">
+                  </kendo-combobox>
+                </div>
+              </div>
+            </div>
+          </div>          
+          <div class="buttonsContainer">
+            <button type="submit" style="width:90px; margin-right:20px" kendoButton [disabled]="!createNoteForm.valid || !createNoteForm.dirty">Save</button>
+            <button type="button" style="width:90px" kendoButton (click)="cancel($event)">Cancel</button>
+          </div>           
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="popupNoteContainer" *ngIf="(viewType == 'View')">
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="viewNoteForm" novalidate>
+          <div class="content clear">
+            <div class="form-group" *ngIf="data.isSharedWithProfDevelopment">
+              <span class="attentionMag">*Attention This note is visible by Professional Development team</span>
+            </div>
+            <div class="form-group">              
+              <div class="requestLabel">Note Subject</div>
+              <div class="textboxDiv">
+                <span>{{data.title}}</span>
+              </div>
+            </div>
+            <div class="form-group">              
+              <div class="requestLabel">Note details</div>
+              <div class="detailDiv">
+                <span [innerHTML]="SafeHtmlContent(data.details)"></span>                
+              </div>
+            </div>            
+            <div class="iManageContainer">              
+              <div *ngIf="data.iManageDocNumber">
+                <a href={{data.iManageDocUrl}} target="_blank">Attachment</a>
+              </div>
+            </div>
+          </div>          
+          <div class="buttonsContainer">
+            <button type="button" style="width:90px" kendoButton (click)="cancel($event)">Close</button>
+          </div>            
+        </form>
+      </div>
+    </div>     
+  </div>
+
+</kendo-dialog>

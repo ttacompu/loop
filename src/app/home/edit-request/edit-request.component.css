@@ -1,0 +1,142 @@
+.requestDetailsContainer {
+  padding-left: 80px
+}
+
+.requestDetailsContainer label {
+  width : 150px ;
+  text-align: right;
+  margin-right : 20px;
+}
+
+/*Notes*/
+.mainContainer {
+  border: 1px solid #ddd;
+  border-top: 2px solid black;
+  box-shadow: 1px 3px #ddd;
+  padding: 15px;
+  background-color: #f7f7f7;
+  margin-bottom: 20px;
+}
+
+.noteHeaderContainer {
+  display: flex;
+  border-bottom: 1px solid #aaa;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.noteFlexItemAddNew {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+.noteFlexItemTitle {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  margin-left: 5px;  
+}
+
+.noteDeatilsContainer {
+  display: flex;
+  margin-top: 1px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  height:35px;
+}
+
+.noteDeatilsHeaderContainer {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #aaa;
+  height: 40px;
+}
+
+.noteFlexItemEditDelete {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  margin-right: 5px;
+  flex-basis: 15%;  
+}
+
+.noteFlexItemAdd {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  margin-right: 5px;
+  flex-basis: 15%;
+}
+
+.noteFlexItemDate {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  margin-left: 5px;
+  flex-basis: 15%
+}
+
+.noteFlexItemTitle {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  margin-left: 5px;
+  flex-basis: 70%
+}
+
+.mediumWidth {
+  width : 400px;
+}
+.textAreaWidth {
+  width: 100% !important;  
+}
+.allowPDCheckbox {
+  border-bottom: 1px solid #ddd;
+  margin-left:18px;
+  margin-right:19px;
+}
+
+.iconBtton {
+  margin-right: 10px;  
+}
+
+.detailDiv {
+  width: 100% !important;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, .08);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-height: 150Px;
+  overflow: auto;
+  background-color: #fff;
+}
+.textboxDiv {
+  width: 400px;
+  height: 30px;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, .08);
+  background-color: #fff;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.requestLabel {
+  position: relative;
+  left: 2px;
+  top: 3px;
+  font-size: 12px !important;
+  color: #555;
+  opacity: 0.8;
+}

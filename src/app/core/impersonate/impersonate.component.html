@@ -1,0 +1,9 @@
+<div class="impersonateContainer">
+    <div *ngIf="isImpersonated" class="flashing message" (click)="closeImpersonating()">
+      <div>You are working on behalf of {{impersonatedUser}}</div>
+      <div><i class="fa fa-window-close" style="cursor:pointer"></i></div>
+    </div>
+</div>
+
+
+

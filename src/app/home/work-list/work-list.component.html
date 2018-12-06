@@ -1,0 +1,36 @@
+<div class="indexContainer">
+  <div class="subHeaderContainer">
+    <div class="headerLeft">
+      <strong>Pending Feedbacks</strong>
+    </div>
+    <div class="headerRight">
+      
+    </div>
+  </div>
+  <div class="subContent">
+
+    <div class="itemContainer" *ngFor="let item of dataList">
+      <div class="flexItem">
+        {{item.statusChangeDate | date:"MM/dd/yyyy hh:mm a" }}
+      </div>
+      <div class="flexItem">
+        <span>{{item.isShowRespondButton? item.requesterFullName : item.contributorFullName }}</span>
+      </div>
+      <div class="flexItem linkContainer">
+        <a href="#" (click)="redirectDetails($event, item)"  style="margin-right : 10px;">Details</a><span style="margin-right : 10px;">|</span>
+        <a href="#" *ngIf="item.isShowRespondButton" (click)="ShowAlertPopup($event, item)">Accept</a>
+        <a href="#" *ngIf="item.isShowRemindButton" (click)="workListResponse($event, false, item)">Remind</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="subFooterContainer">
+    <div class="footerLeft">
+    </div>
+    <div class="footerRight">
+      <a href="#" (click)="openDetails($event)">View All</a>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,40 @@
+<form [formGroup]="timeSlotForm" novalidate>
+  <kendo-dialog title="Feedback meetings" *ngIf="isOpen" (close)="timeSlotFormClose()" [width]="640" [height]="250">
+    <div class="popupContainer">
+
+      <div class="dateContainer">
+        <span style="margin-right: 10px;"> I will be available for a feedback session on </span>
+        <span style="margin-right: 10px;"><kendo-datepicker formControlName="availableDate" [format]="'dd-MMM-yyyy'"></kendo-datepicker></span>
+        <span class="help-block" *ngIf="errorMessages.availableDate">
+          {{errorMessages.availableDate}}
+        </span>
+      </div>
+
+      <div class="timeContainer">
+        <span style="font-weight:bold; margin-right:10px">From </span>
+        <div class="fromTimeContainer">
+          <span class="moveTop"><kendo-timepicker formControlName="fromTime" (valueChange)="fromChange()"></kendo-timepicker></span>
+          <span class="help-block" *ngIf="errorMessages.fromTime">
+            {{errorMessages.fromTime}}
+          </span>
+        </div>
+
+        <span style="font-weight:bold; margin-right : 10px; margin-left:10px;">To</span>
+
+        <div class="toTimeContainer">
+          <span class="moveTop"><kendo-timepicker formControlName="toTime"></kendo-timepicker></span>
+          <span class="help-block" *ngIf="errorMessages.toTime">
+            {{errorMessages.toTime}}
+          </span>
+        </div>
+      </div>
+
+      <div class="buttonContainer">
+        <button kendoButton type="button" (click)="saveClose($event)" [disabled]="!timeSlotForm.valid || !timeSlotForm.dirty">Save and Close</button>
+        <button kendoButton type="button" (click)="saveOpen($event)" [disabled]="!timeSlotForm.valid || !timeSlotForm.dirty" *ngIf="isNew">Save and Add Another</button>
+        <button kendoButton type="button" (click)="cancel($event)">Cancel</button>
+      </div>
+
+    </div>
+  </kendo-dialog>
+</form>

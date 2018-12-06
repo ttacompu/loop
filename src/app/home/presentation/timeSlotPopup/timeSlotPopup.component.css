@@ -1,0 +1,39 @@
+.popupContainer {
+  display:flex;
+  flex-direction:column;
+  padding : 15px;
+}
+
+.dateContainer {
+  display:flex;
+  height : 30px;
+  align-items:center;
+  
+}
+
+.timeContainer {
+  display: flex;
+  margin-top: 20px;
+  
+}
+
+.moveTop {
+  position: relative;
+  top: -5px
+}
+
+.fromTimeContainer, toTimeContainer {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+  .buttonContainer button {
+    margin-right: 10px;
+  }

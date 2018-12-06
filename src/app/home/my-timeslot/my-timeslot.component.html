@@ -1,0 +1,40 @@
+<div class="indexContainer">
+  <div kendoDialogContainer></div>
+  <div class="subHeaderContainer">
+    <div class="headerLeft">
+      <strong> My Available Time Slots</strong>
+    </div>
+    <div class="headerRight">
+      <a href="#" (click)="openTimeSlotPop($event)">Add New</a>
+    </div>
+  </div>
+  <div class="subContent">
+    <div class="itemContainer" *ngFor="let item of dataList">
+      <div class="flexItem">
+        {{item.fromDate | date:"dd-MMM-yyyy" }}
+      </div>
+      <div class="flexItem">
+        {{item.fromDate | date:"hh:mm a" }} - {{item.toDate | date:"hh:mm a" }}
+      </div>
+      <div class="flexItem ">
+        <span>{{ item.timeSlotStatus}}</span>
+      </div>
+      <div class="flexItem ButtonContainer">
+        <span *ngIf="item.timeSlotStatus==='Available'">
+          <button kendoButton [iconClass]="'fa fa-edit'" title="edit" (click)="edit($event, item)"></button>
+          <button kendoButton [iconClass]="'fa fa-trash'" title="delete" (click)="delete($event, item)"></button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="subFooterContainer">
+    <div class="footerLeft">
+    </div>
+    <div class="footerRight">
+      <a href="#" (click)="viewAllTimeSlot($event)">View All</a>
+    </div>
+  </div>
+
+</div>
+

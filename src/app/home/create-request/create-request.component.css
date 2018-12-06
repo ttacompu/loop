@@ -1,0 +1,56 @@
+.formContainer {
+    margin-left : 100px;
+}
+.col-form-label {
+  padding-top: 0px !important;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+
+.buttonsContainer .k-button {
+  margin-right: 10px;
+}
+
+.indexContainer .content {
+    margin-top : 20px;
+}
+
+.iManageContainer {
+  display: flex;
+  align-items: center
+}
+
+.iManageContainer .iMangeMarginRight {
+    margin-right: 8px;
+  }
+.iManageDocInput {
+  position: relative;
+  top: -7px;
+}
+
+.serverContainer {
+  position : relative;
+  top : -7px;
+}
+
+.requestWidth {
+  width : 400px !important;
+}
+
+.fullWidth {
+  width : 100%;
+}
+
+.requestLabel {
+  position:relative;
+  left : 2px;
+  top : 3px;
+  font-size: 11px !important;
+  color:#555;
+  opacity:0.8
+}
+
+
+
+

@@ -1,0 +1,20 @@
+<form [formGroup]="ackForm" novalidate>
+  <kendo-dialog title="Alert" [width]="400" [height]="350" (close)="ackClose()" *ngIf="isOpen">
+    <div class="acceptReject">
+      <div>
+        Your secretary will be receiving an email to schedule a meeting with <strong>{{data.requesterFullName}}</strong>. Would you like to proceed with accepting this request?
+      </div>
+
+      <kendo-textbox-container floatingLabel="Comments">
+        <textarea kendoTextArea formControlName="acceptComment" style="width:350px;"></textarea>
+      </kendo-textbox-container>
+
+      <div style="color: red; margin-top:10px;">*This comment will be included into email notification. Do not provide any feedback related information.</div>
+
+      <div class="acceptButtonContainer" style="margin-top : 10px;">
+        <button kendoButton type="button" (click)="acceptRequest($event)">Confirm</button>
+        <button kendoButton type="button" (click)="cancelRequest($event)">Cancel</button>
+      </div>
+    </div>
+  </kendo-dialog>
+</form>

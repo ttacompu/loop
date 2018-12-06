@@ -1,0 +1,33 @@
+<div class="indexContainer">
+  <div class="subHeaderContainer">
+    <div class="headerLeft">
+      <strong>My Feedback to Others</strong>
+    </div>
+    <div class="headerRight">
+      <!-- <a href="#" [routerLink]="['/home', 'createFeedback']">New Feedback</a>-->
+    </div>
+  </div>
+  <div class="subContent">
+    <div class="itemContainer" *ngFor="let item of dataList">
+      <div class="flexItem">
+        {{item.statusChangeDate | date:"MM/dd/yyyy hh:mm a" }}
+      </div>
+      <div class="flexItem">
+        <a href="#" (click)="routeByStatus($event, item)">{{item.requesterFullName}}</a>
+      </div>
+      <div class="flexItem rightAlign">
+        <span class="statusButton" [ngClass]="userService.getStatusColor(item.status.id)">{{item.status.name}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="subFooterContainer">
+    <div class="footerLeft">
+    </div>
+    <div class="footerRight">
+      <a href="#" (click)="openDetails($event)">View All</a>
+    </div>
+  </div>
+
+</div>
+

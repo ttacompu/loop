@@ -1,0 +1,38 @@
+.impersonateContainer {
+  display : flex;
+  justify-content:center;
+}
+
+.message {
+  display: flex;
+  width: 500px;
+  border-radius: 20px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding-left: 10px;
+  justify-content: space-between;
+  padding: 0 15px;
+  background-color: red;
+  color: white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/*@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+
+  100% {
+    visibility: visible;
+    opacity : 1;
+    background-color:red;
+    color : white;
+    
+  }
+}
+
+.flashing {
+  animation : fadeIn 3s infinite;
+}*/

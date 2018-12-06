@@ -1,0 +1,41 @@
+.customWidth {
+  width : 600px;
+}
+.buttonContainer, .acceptButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+  .buttonContainer button {
+    margin-right : 20px;
+    width : 120px;
+    height : 80px;
+
+  }
+
+  .acceptButtonContainer button {
+    margin-right: 9px;
+    border : 1px solid #ddd;
+  }
+
+.accept {
+  background-color : green;
+  color : white;
+  font-weight: bold;
+  cursor:pointer;
+
+
+}
+.decline {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.acceptReject {
+  display: flex;
+  flex-direction: column
+}
+
+

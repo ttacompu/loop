@@ -1,0 +1,62 @@
+#spRequester {
+  float:right;
+}
+
+#divNotes {
+  width:100%;
+}
+
+.requestWidth {
+  width: 400px !important;
+  /*margin-right:20px;*/
+}
+
+/*CP*/
+.mainNoteResultContainer {
+  border: 1px solid #ddd;
+  border-top: 2px solid black;
+  box-shadow: 1px 3px #ddd;
+  padding: 15px;
+  background-color: #f7f7f7;
+  margin-bottom: 20px;
+}
+
+.noteResultContainer {
+  /*border: 1px solid #ddd;*/
+  border-bottom: 1px solid #ddd;
+  /*border-top: 2px solid black;*/
+  /*box-shadow: 1px 3px #ddd;*/
+  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.noteHeaderContainer {
+  display: flex;  
+  /*bonoterder-bottom: 1px solid #ddd;*/
+  margin-top: 5px;
+  margin-bottom:10px;
+}
+
+.noteItemContainer {    
+  /*align-content: stretch;*/
+  /*border-bottom: 1px solid #ddd;*/
+  margin-top: 5px;
+}
+
+.flexItemList {
+  flex: 1;
+  display: flex;
+  align-content:center;
+  justify-content: flex-end;
+  margin-right:5px;
+}
+
+.flexItemTitle {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  margin-left: 5px;
+  /*align-items:flex-end;*/
+}

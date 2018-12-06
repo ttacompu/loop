@@ -1,0 +1,35 @@
+<kendo-dialog title="View All Timeslots" *ngIf="isOpen" (close)="viewAllTimeSlotClose()" [width]="800" [height]="600">
+  <kendo-grid [data]="data" [height]="540">
+    <kendo-grid-column field="id" [hidden]="true"></kendo-grid-column>
+
+    <kendo-grid-column title="Availabe date">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.fromDate | date:"MM/dd/yyyy" }}
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column title="Availabe time range">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.fromDate | date:"hh:mm a" }} - {{dataItem.toDate | date:"hh:mm a" }}
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column title="Status">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.timeSlotStatus}}
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column>
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div class="buttonContainer">
+          <span *ngIf="dataItem.timeSlotStatus==='Available'">
+            <button kendoButton [iconClass]="'fa fa-edit'" title="edit" (click)="edit($event, dataItem)"></button>
+            <button kendoButton [iconClass]="'fa fa-trash'" title="delete" (click)="delete($event, dataItem)"></button>
+          </span>
+        </div>
+      </ng-template>
+    </kendo-grid-column>
+
+  </kendo-grid>
+</kendo-dialog>

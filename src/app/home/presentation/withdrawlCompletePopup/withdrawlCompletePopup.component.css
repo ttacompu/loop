@@ -1,0 +1,16 @@
+.dialogContent {
+  padding : 20px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+  .buttonContainer button {
+    margin-right : 5px;
+  }
+
+.fullWidth {
+  width : 600px;
+}

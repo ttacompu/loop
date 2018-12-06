@@ -1,0 +1,36 @@
+<kendo-dialog title="{{dialogTitle}}" *ngIf="isOpen" (close)="requestDetailsClose()" [width]="800" [height]="600">
+  <kendo-grid [data]="data" [height]="540">
+    <kendo-grid-column field="id" [hidden]="true"></kendo-grid-column>
+    <kendo-grid-column field="statusChangeDate" title="Date">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.statusChangeDate | date:"MM/dd/yyyy hh:mm a" }}
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="contributorFullName" title="Name" *ngIf="!isWorkList">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <a href="#" [routerLink]="isFeedBackToOthers ?['/home', 'editRequest', dataItem.id] :['/home', 'createRequest', dataItem.id]">{{dataItem[columnName]}}</a>
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="contributorFullName" title="Name" *ngIf="isWorkList">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <span>{{dataItem.isShowRespondButton? dataItem.requesterFullName : dataItem.contributorFullName }}</span>
+      </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="status" title="Status">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div style="display:flex; justify-content:center ">
+          <span *ngIf="!isWorkList" class="statusButton" [ngClass]="userService.getStatusColor(dataItem.status.id)">{{dataItem.status.name}}</span>
+          <div *ngIf="isWorkList">
+            <a href="#" (click)="redirectDetails($event, dataItem )"  style="margin-right : 10px;">Details</a> <span style="margin-right : 10px;">|</span>
+            <a href="#" *ngIf="dataItem.isShowRespondButton" (click)="openWindow($event, dataItem, true)">Accept</a>
+            <a href="#" *ngIf="dataItem.isShowRemindButton" (click)="openWindow($event, dataItem, false)">Remind</a>
+          </div>
+        </div>
+      </ng-template>
+    </kendo-grid-column>
+
+  </kendo-grid>
+</kendo-dialog>

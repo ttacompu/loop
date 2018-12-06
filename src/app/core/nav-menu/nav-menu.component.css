@@ -1,0 +1,53 @@
+.NavInnerContainer{
+    color : white;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profiePic{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 132px;
+    color : white !important;
+}
+
+.menuOuterContainer{
+    margin-top : 10px;
+}
+
+.companyLogo{
+    display:flex;
+    justify-content: center;
+    margin-top: 30px;
+    width : 87px;
+    height : 139px;
+}
+
+.submenuContainer{
+    display: flex;
+    flex-direction: column;
+    min-width : 300px ;
+    height : auto ;
+    padding : 15px;
+}
+
+.wideContainerWidth {
+  min-width: 600px;
+}
+
+.subsubMenuContainer {
+  display: flex;
+}
+
+.subsubMenu{
+    flex-grow: 1;
+    padding : 5px;
+}
+
+
+

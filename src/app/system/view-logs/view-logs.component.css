@@ -1,0 +1,15 @@
+.viewLogBody {
+  margin-top: 20px;
+}
+
+button {
+  width: 40px;
+}
+
+.clearButtonsContainer {
+  margin: 10px 0;
+}
+
+.clearButtonsContainer button {
+    width: 100px;
+}

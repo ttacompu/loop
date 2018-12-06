@@ -1,0 +1,14 @@
+.acceptReject {
+  display: flex;
+  flex-direction: column
+}
+
+.acceptButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.acceptButtonContainer button {
+  margin-right: 9px;
+  border: 1px solid #ddd;
+}

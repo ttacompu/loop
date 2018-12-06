@@ -1,0 +1,95 @@
+<div kendoDialogContainer></div>
+<div class="pageContainer">
+  <div class="popupContainer">
+    <cgsh-withdrawl-Complete-Popup (sendCommand)="statusChange($event)" [popup]="withdrawCompletePopupSubject" dialogTitle="Changing Status" [isComplete]="isComplete"></cgsh-withdrawl-Complete-Popup>
+  </div>
+
+  <form [formGroup]="createRequestForm" novalidate (ngSubmit)="saveDraft()">
+
+    <div class="header clearfix">
+      <div class="float-left header-left">
+        <strong>{{formLabel}}</strong>
+      </div>
+
+      <div class="float-right header-right">
+        <div class="buttonsContainer">
+          <button type="submit" kendoButton *ngIf="!isEdit || isDraft" [disabled]="(!createRequestForm.valid || !createRequestForm.dirty)">Save as Draft</button>
+          <button #pendingButton type="button" kendoButton *ngIf="!isEdit || isDraft" (click)="savePending()" [disabled]="!createRequestForm.valid">Ask for Feedback</button>
+          <button type="button" kendoButton (click)="deleteFeedback($event)" *ngIf="isDraft">Delete Draft</button>
+          <button type="button" kendoButton (click)="withdrawRequest()" *ngIf="showWithdraw()">Withdraw Request</button>
+          <button type="button" kendoButton (click)="completeFeedback()" *ngIf="isAccepted()">Complete Feedback</button>
+          <button type="button" kendoButton (click)="cancel($event)">Go back</button>
+        </div>
+      </div>
+    </div>
+    <div class="content clear">
+      <div class="formContainer">
+        <span class="statusButton" *ngIf="isEdit" [ngClass]="userService.getStatusColor(currrentRequestFeedback?.status?.id)" style="margin-bottom: 10px;">{{currrentRequestFeedback?.status?.name}}</span>
+
+        <div>
+          <span class="requestLabel">Who should provide the feedback</span>
+          <span class="redText" *ngIf="createRequestForm.get('responder').validator">*</span>
+          <div class="form-group">
+            <kendo-combobox [valuePrimitive]="true" [placeholder]="'Type name here'" formControlName="responder" [data]="renderLawyerList" [textField]="'fullName'" [valueField]="'clearyKey'" class="requestWidth" [filterable]="true"
+                            #responder>
+              <ng-template kendoComboBoxItemTemplate let-dataItem>
+                <div style="display:flex">
+                  <div style="width: 280px">{{dataItem.fullName}}</div>
+                </div>
+              </ng-template>
+            </kendo-combobox>
+            <span class="help-block" *ngIf="errorMessages.responder">
+              {{errorMessages.responder}}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <kendo-textbox-container floatingLabel="Related Matter Number" class="requestWidth">
+            <input kendoTextBox type="text" formControlName="matterNumber" />
+          </kendo-textbox-container>
+        </div>
+
+        <div *ngIf="isAvailableMeeting">
+          <span class="requestLabel">Available meeting dates</span>
+          <div class="form-group">
+            <kendo-combobox [valuePrimitive]="true" formControlName="availableTime" [data]="timeSlotList" [textField]="'name'" [valueField]="'id'" class="requestWidth" [placeholder]="'Choose available meeting dates'"></kendo-combobox>
+            <span class="help-block" *ngIf="errorMessages.availableTime">
+              {{errorMessages.availableTime}}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <kendo-textbox-container floatingLabel="Feedback details *" class="fullWidth">
+            <textarea formControlName="feedbackDetails" kendoTextArea class="k-textbox" rows="3" name="description"></textarea>
+          </kendo-textbox-container>
+          <span class="help-block" *ngIf="errorMessages.feedbackDetails">
+            {{errorMessages.feedbackDetails}}
+          </span>
+        </div>
+
+        <div class="iManageContainer">
+          <div style="height:45px;">
+            <kendo-textbox-container class="iMangeMarginRight iManageDocInput requestWidth" floatingLabel="iManage Doc #">
+              <input kendoTextBox type="number" formControlName="iManageDocNumber" />
+            </kendo-textbox-container>
+            <span class="help-block" *ngIf="errorMessages.iManageDocNumber">
+              {{errorMessages.iManageDocNumber}}
+            </span>
+          </div>
+
+          <span class="iMangeMarginRight">in </span>
+
+          <div class="serverContainer">
+            <span class="requestLabel">Choose a server</span>
+            <div>
+              <kendo-dropdownlist [valuePrimitive]="true" [data]="libList" [textField]="'name'" [valueField]="'id'" class="requestWidth" formControlName="iManageServer">
+              </kendo-dropdownlist>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,74 @@
+#spRequester {
+  float: right;
+}
+
+#divSearch {
+  width: 100%;
+}
+
+.requestWidth {
+  width: 400px !important;
+  margin-right: 20px;
+}
+
+.searchContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.search-label{
+  font-weight:bold;
+}
+.rdoWrapContainer {
+  position: relative;
+  top: 8px;
+  margin-right: 10px;
+}
+.highlightText {
+  background: yellow;
+}
+
+/*CP*/
+.mainSearchResultContainer {
+  border: 1px solid #ddd;
+  border-top: 2px solid black;
+  box-shadow: 1px 3px #ddd;
+  padding: 15px;
+  background-color: #f7f7f7;
+  margin-bottom: 20px;
+}
+
+.searchResultContainer {
+  /*border: 1px solid #ddd;*/
+  border-bottom: 1px solid #ddd;
+  /*border-top: 2px solid black;*/
+  /*box-shadow: 1px 3px #ddd;*/
+  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.searchSubHeader {
+  height: 30px;
+  /* margin-bottom: 20px; */
+  /*border-bottom: 1px solid #aaa;*/
+}
+
+.searchItemContainer {
+  display: flex;  
+  /*height: 30px;*/
+  /*align-content: stretch;*/
+  /*border-bottom: 1px solid #ddd;*/
+  margin-top: 1px;
+}
+
+.searchItemTitle{
+  width:20%
+}
+
+.searchItemData {
+  width: 80%
+}

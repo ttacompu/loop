@@ -1,0 +1,23 @@
+
+.flexItem {
+  flex: 1;
+  display: flex;
+  align-items: center
+}
+
+.itemContainer {
+  display: flex;
+  height: 45px;
+  align-content: stretch;
+  border-bottom: 1px solid #ddd;
+}
+
+.ButtonContainer {
+  display:flex;
+  justify-content:flex-end;
+
+}
+
+.ButtonContainer button {
+  margin-right: 10px;
+}

@@ -1,0 +1,36 @@
+<div class="NavInnerContainer">
+  <div class="profiePic">
+    <img class="userIcon" [src]="picUrl" (error)="handlePicError()" style="width:48px; height: 48px; border-radius: 50px"  >
+    <div style="margin-top:10px;">Welcome,</div>
+    <div>{{userName}}</div>
+  </div>
+
+  <div class="menuOuterContainer">
+    <kendo-menu menuactive [vertical]="true" style="display:inline-block;" (select)="onSelect($event)" #menu>
+      <kendo-menu-item text="Home" [cssClass]="'menuItemContainer active'"></kendo-menu-item>
+      <kendo-menu-item *ngIf="isShowViewNotes" text="View Notes" [cssClass]="'menuItemContainer'"></kendo-menu-item>
+
+      <!--    <kendo-menu-item text="System" [cssClass]="'menuItemContainer'">
+        <ng-template kendoMenuItemContentTemplate let-item="item" let-index="index">
+          <div class="submenuContainer">
+            <div class="submenuHeader">Logs</div>
+            <div class="submenuBody">
+              <ul>
+                <li>
+                  <a (click)="menu.toggle(false, index)" routerLink="/system/viewLogs">View Logs</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-template>
+      </kendo-menu-item>-->
+
+    </kendo-menu>
+  </div>
+
+  <div class="companyLogo">
+    <img style="width: 59px; height:59px" src="{{alias + '/assets/logo-icon.png'}}">
+  </div>
+
+
+</div>

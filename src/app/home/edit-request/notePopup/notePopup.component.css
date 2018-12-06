@@ -1,0 +1,135 @@
+.statusButton {
+  width: 80px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color : blue;
+  cursor:pointer;
+}
+
+  a:hover {
+    text-decoration:underline;
+  }
+
+.fullWidth {
+  width: 100%;  
+}
+
+.indexContainer .content {
+  margin-top: 20px;  
+}
+
+.popupNoteContainer {
+  border: 1px solid #ddd;
+  /*border-top: 2px solid black;*/
+  box-shadow: 1px 3px #ddd;
+  padding: 15px;
+  background-color: #f7f7f7;
+  margin-bottom: 20px;
+}
+
+.requestWidth {
+  width: 100% !important;
+}
+
+.iManagelibWidth {
+  width: 278px !important;
+}
+
+.iManagelibLabel {
+  position: relative;
+  left: 2px;
+  top: 3px;
+  font-size: 11px !important;
+  color: #555;
+  opacity: 0.8
+}
+
+.iManageContainer {
+  display: flex;
+  align-items: center
+}
+
+  .iManageContainer .iMangeMarginRight {
+    margin-right: 8px;
+  }
+
+.iManageDocInput {
+  position: relative;
+  /*top: -7px;*/
+  top: 1px;
+}
+
+.iManageWidth {
+  width: 400px !important;
+}
+
+.saveBtton{
+  margin-top:50px;
+  float:right;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top:20px;
+}
+
+.buttonsContainer .k-button {
+  margin-right: 10px;
+  align-content:center;
+}
+
+.buttonsContainer button {
+  margin-right: 20px;
+  width: 80px;
+  height: 40px;
+}
+
+.attentionMag{
+  color:red;
+}
+
+.detailDiv {
+  width: 100% !important;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, .08);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-height: 100Px;
+  overflow: auto;
+  background-color: #fff;
+  height:240px;
+}
+
+.textboxDiv {
+  width: 100% !important;
+  height: 30px;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, .08);
+  background-color: #fff;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.detailTextAreaHeight {
+  min-height: 240px;
+}
+
+.requestLabel {
+  position: relative;
+  left: 2px;
+  top: 3px;
+  font-size: 12px !important;
+  color: #555;
+  opacity: 0.8;
+}

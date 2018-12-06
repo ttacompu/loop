@@ -1,0 +1,14 @@
+<form [formGroup]="statusChangedForm" novalidate>
+  <kendo-dialog title="Send Reminder"  (close)="requestDetailsClose()" [width]="800" [height]="400" *ngIf="isOpen">
+
+    <div class="remindContainer" >
+      <div style="line-height:30px; padding : 10px;">
+        You are requesting a reminder to be sent to {{data.ContributorFullName}} on your request for feedback submitted on {{ reminderData.submitedDate | date :'dd-MMM-yyyy hh:mm a' }}. To date you already sent {{reminderData.count}} reminder(s). You will not be able to send more than 3 reminders on the request.
+      </div>
+      <div style="margin-top: 10px; display:flex; justify-content:center" >
+        <button kendoButton type="button" (click)="reminding()" style="height:40px !important" *ngIf="reminderData.count<3 ">Send Reminder</button>
+      </div>
+    </div>
+    
+  </kendo-dialog>
+</form>

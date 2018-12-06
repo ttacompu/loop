@@ -1,0 +1,123 @@
+<cgsh-notepopup [popup]="openPopupSubject" (ReloadNotesList) ="ReloadFeedbackRequest($event)" [data]="currentNote" [dialogType]="popupTitle" [columnName]="columnName"></cgsh-notepopup>
+<cgsh-ack-popup [popup]="openAckSubject" (acceptRequestSent)="acceptRequestSending($event)"></cgsh-ack-popup>
+<div toastContainer style="position:absolute; top : 60px; right : 400px"></div>
+<div kendoDialogContainer></div>
+<div class="mainContainer">
+  <form [formGroup]="editRequestFormGroup" novalidate>
+    <div class="row">
+      <div class="col">
+        <div class="header clearfix">
+          <div class="float-left header-left">
+            <strong>Request Details</strong>
+          </div>
+
+          <div class="float-right header-right">
+            <div class="buttonsContainer">
+              <button type="button" kendoButton (click)="response($event)" *ngIf="currentStatusName == 'Feedback Requested' && userClearyKey == requestContributorClearyKey" style="margin-right:10px;">Accept</button>
+              <span *ngIf="currentStatusId == 3">
+                <button kendoButton *ngIf="userClearyKey == requestContributorClearyKey" [iconClass]="'fa fa-plus'" (click)="openNoteAddPopupWindow($event)" title="Add" class="iconBtton">&nbsp;&nbsp;Add Note</button>
+              </span>
+              <button #myBackBttn type="button" kendoButton (click)="GoBack($event)">Go Back</button>
+            </div>
+          </div>
+        </div>
+        <div class="content clear requestDetailsContainer">
+          <span class="statusButton" [ngClass]="userService.getStatusColor(currentStatusId)" style="margin-bottom: 10px;">{{currentStatusName}}</span>
+          <div class="form-group">
+            <div class="requestLabel">Feedback based on the request from</div>
+            <div class="textboxDiv">
+              <span>{{currentRequest.requesterFullName}}</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="requestLabel">Date of Request</div>
+            <div class="textboxDiv">
+              <span>{{currentRequest.statusChangeDate | date:"dd-MMM-yyyy hh:mm a"}}</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="requestLabel">Related to Matter number</div>
+            <div class="textboxDiv">
+              <span>{{currentRequest.clientMatterNumber}}</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="requestLabel">Details of request</div>
+            <div class="detailDiv">
+              <span [innerHTML]="SafeHtmlContent(currentRequest.requestDetails)"></span>              
+            </div>
+          </div>
+          <div class="form-group">
+            <div *ngIf="currentRequest.iManageDocNumber">
+              <a href={{currentRequest.iManageDocUrl}} target="_blank">Attachment</a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="userClearyKey == requestContributorClearyKey">
+      <div *ngIf="currentStatusId == 3">
+        <div class="row">
+          <div class="col">
+            <div class="noteHeaderContainer">
+              <div class="noteFlexItemTitle"><strong>Notes</strong></div>
+              <div class="noteFlexItemAddNew">
+                <!--<a href="#" (click)="openNoteAddPopupWindow($event)">Add Note</a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row allowPDCheckbox">
+          <div class="col" style="margin-bottom:10px">
+            <input type="checkbox" id="isAllowPDViewNotes" formControlName="isAllowPDViewNotes" (change)="allowPDcheckboxChanged(currentRequest.id)" style="margin-left:5px; margin-right:5px" />
+            <span>Allow Professional Development team to view my notes</span>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div class="col">
+            <div class="noteDeatilsContainer">
+              <div class="noteFlexItemDate">
+                <b>Date</b>
+              </div>
+              <div class="noteFlexItemTitle">
+                <b>Subject</b>
+              </div>
+              <div class="noteFlexItemEditDelete">
+                &nbsp;
+                <!--<button kendoButton [iconClass]="'fa fa-plus'" (click)="openNoteAddPopupWindow($event)" title="Add" class="iconBtton">&nbsp;&nbsp;Add Note</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="notesCount > 0">
+          <div class="row" *ngFor="let note of (currentRequest.notes ? currentRequest.notes : notes)">
+            <div class="col">
+              <div class="noteDeatilsContainer">
+                <div class="noteFlexItemDate">
+                  {{note.createdOn | date:"MMMM d, y"}}
+                </div>
+                <div class="noteFlexItemTitle">
+                  {{note.title}}
+                </div>
+                <div class="noteFlexItemEditDelete">
+                  <!--<span style="margin-right:10px"><a href="#" (click)="openNoteViewPopupWindow($event, note)"> View</a></span>-->
+                  <button kendoButton [iconClass]="'fa fa-info'" (click)="openNoteViewPopupWindow($event, note)" title="View" class="iconBtton"></button>
+                  <!--<span style="margin-right:10px"><a href="#" (click)="openNoteEditPopupWindow($event, note)">Edit</a></span>-->
+                  <button kendoButton [iconClass]="'fa fa-edit'" (click)="openNoteEditPopupWindow($event, note)" title="Edit" class="iconBtton"></button>
+                  <!--<span><a href="#" (click)="deleteNote($event, note.id, currentRequest.id)">Delete</a></span>-->
+                  <button kendoButton [iconClass]="'fa fa-trash'" (click)="deleteNote($event, note.id, currentRequest.id)" title="Delete" class="iconBtton"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="row">
+              <div class="col"><hr /></div>
+            </div>-->
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

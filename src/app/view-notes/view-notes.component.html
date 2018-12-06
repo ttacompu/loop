@@ -1,0 +1,37 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <div id="divNotes">
+        <div class="noteHeaderContainer">
+          <div class="flexItemTitle"><b style="font-size:16px">Available Notes</b></div>
+          <div class="flexItemList">
+            <b style="font-size: 15px; margin-top: 3px; margin-right: 5px;">View Notes for: </b>
+            <kendo-combobox [data]="requestorList"
+                            [textField]="'fullName'"
+                            [valueField]="'clearyKey'"
+                            class="requestWidth"
+                            [valuePrimitive]="true"
+                            [value]="selectedRequestor"
+                            (valueChange)="valueChange($event)">
+            </kendo-combobox>
+          </div>
+        </div>
+        <div class="mainNoteResultContainer">
+          <div class="noteResultContainer" *ngFor="let note of notesView">
+            <div class="noteItemContainer">
+              <div style="margin-bottom:5px"><b> Feedback note by {{note.contributorFullName}} on {{note.createdOn | date:"EEEE, MMMM d, y 'at' h:mm a "}}</b> - {{note.title}}</div>
+              <div> <span [innerHTML]="SafeHtmlContent(note.details)"></span></div>
+              <div *ngIf="note.iManageDocNumber">
+                <a href={{note.iManageDocUrl}} target="_blank">Attachment</a>
+              </div>
+              <div style="display:none">***just for testing ddl - {{note.requesterFullName}}</div>
+            </div>
+          </div>
+          <div class="noteResultContainer" *ngIf="notesResultCount==0">
+            <strong>No Data Found</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

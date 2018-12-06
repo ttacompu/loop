@@ -1,0 +1,14 @@
+<div class="headerContainer">
+  <div class="imgHeader">
+    <img src="{{alias + '/assets/ClearyLoop.png'}}" />
+  </div>
+  <div class="searchContainer">
+
+    <div class="inner-addon" (click)="search($event)">
+      <span class="serachIcon"><i class="fa fa-search"></i></span>
+      <input style="border-radius:15px; width : 600px; padding-left : 30px; height : 35px;" (keyup.enter)="search($event)" class="form-control" type="search" placeholder="search" [(ngModel)]="searchText" />
+    </div>
+  </div>
+</div>
+<cgsh-impersonate></cgsh-impersonate>
+

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col">
+    <div class="viewLogContainer">
+    <h1>Logs</h1>
+    <div class="viewLogBody">
+      <div class="clearButtonsContainer text-right">
+        <button (click)="clearLogs()" kendoButton>Clear Logs</button>
+      </div>
+
+      <kendo-grid [data]="logGridData"
+                  [pageSize]="state.take"
+                  [skip]="state.skip"
+                  [sort]="state.sort"
+                  [filter]="state.filter"
+                  [sortable]="true"
+                  [pageable]="true"
+                  [groupable]="false"
+                  filterable="menu"
+                  (dataStateChange)="dataStateChange($event)"
+                  [group]="state.group">
+        <kendo-grid-column field="id" [hidden]="true"></kendo-grid-column>
+        <kendo-grid-column field="application" title="Name" width="140"></kendo-grid-column>
+        <kendo-grid-column field="machineName" title="Machine Name" width="180"></kendo-grid-column>
+        <kendo-grid-column field="severity" title="Severity" width="120"></kendo-grid-column>
+        <kendo-grid-column field="timestamp" title="Timestamp" width="200">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.timestamp | date:"MM/dd/yyyy hh:mm a" }}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="formattedMessage" title="Message"></kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+</div>
+</div>

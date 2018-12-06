@@ -1,0 +1,29 @@
+<div toastContainer style="position:absolute; top : 60px; right : 400px"></div>
+<div kendoDialogContainer></div>
+<cgsh-details-popup (openResponseWindow)="openResponsePopup($event)" [popup]="openPopupSubject"></cgsh-details-popup>
+<cgsh-response-popup [popup]="openResSubject" (sentReminder)="reminderSending($event)"> </cgsh-response-popup>
+<cgsh-timeslot-popup [command]="timeSlotCommandSubject" (sendCommandParent)="excuteTimeSlotCommand($event)"></cgsh-timeslot-popup>
+
+<!--[data]="allTimeSlots" [popup]="openAllTimeSlotSubject" [dialogTitle]="'View All Timeslots'" (commandTimeSlot)="commandTimeSlotFromPop($event)" -->
+<cgsh-viewall-timeslot [popup]="openAllTimeSlotSubject" (commandTimeSlot)="commandTimeSlot($event)" ></cgsh-viewall-timeslot>
+<cgsh-ack-popup [popup]="openAckSubject" (acceptRequestSent)="acceptRequestSending($event)"></cgsh-ack-popup>
+
+
+<div class="home">
+  <div class="leftContainer">
+    <cgsh-request-list (openRequestDetails)="openRequestDetails()" [dataList]="requestDataList"></cgsh-request-list>
+  </div>
+  <div class="rightContainer">
+    <cgsh-work-list [dataList]="pendingDataList" (openWorkList)="openWorkList()" (openResponsePop)="openResponsePopup($event)" (ackDataOut)="openAckPopup($event)"></cgsh-work-list>
+  </div>
+  <div class="leftContainer">
+    <cgsh-feedback-list [dataList]="feedbackDataList" (openFeedbackToOthers)="openFeedbackToOthers()"></cgsh-feedback-list>
+  </div>
+  <div class="rightContainer">
+    <!--[executeCommand]="executeMyTimeSlotSubject"  (viewAllTimeSlotOpen)="openAllTimeSlots()" -->
+    <cgsh-my-timeslot [dataList]="timeslotDataList" (openTimeSlotPopUp)="openTimeSlot()" (viewAllTimeSlotOpen)="openAllTimeSlots()" (commandForTimeSlot)="commandTimeSlot($event)"></cgsh-my-timeslot>
+  </div>
+</div>
+
+
+

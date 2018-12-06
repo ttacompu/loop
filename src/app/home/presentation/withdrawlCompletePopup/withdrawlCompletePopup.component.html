@@ -1,0 +1,21 @@
+<kendo-dialog title="{{dialogTitle}}" *ngIf="isOpen" (close)="completeWindowClose()" [width]="800" [height]="300" class="dialogContent">
+  <div *ngIf="!isComplete">
+    <div>This will withdraw your request for feedback. Would you like to proceed?</div>
+    <kendo-textbox-container floatingLabel="Comment for withdraw" class="fullWidth" >
+      <textarea kendoTextArea class="k-textbox" rows="3" name="description" [(ngModel)]="withdrawComment" ></textarea>
+    </kendo-textbox-container>
+    <div class="buttonContainer">
+      <button kendoButton type="button" (click)="changeWithdraw($event)">YES</button>
+      <button kendoButton type="button" (click)="cancel($event)">NO</button>
+    </div>
+  </div>
+  
+  <div *ngIf="isComplete">
+    <div style="margin-bottom:60px;">This will complete the feedback session that occurred on <kendo-datepicker [(ngModel)]="completedDate"></kendo-datepicker> </div>
+    <div class="buttonContainer">
+      <button kendoButton type="button" (click)="changeComplete($event)">Complete</button>
+      <button kendoButton type="button" (click)="cancel($event)">Cancel</button>
+    </div>
+
+  </div>
+</kendo-dialog>

@@ -1,1 +1,297 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px !important;
+}
+
+label, span, input, button, textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px !important;
+}
+
+th {
+  font-size: 14px;
+  font-weight: bold !important;
+}
+
+td {
+  font-size: 14px !important;
+}
+
+/* kendo overwriting */
+.k-grid-header .k-header {
+  vertical-align: top !important;
+}
+.k-item {
+  font-size:14px;
+}
+
+.k-window-content {
+  overflow-y: hidden !important;
+}
+.k-window-titlebar {
+  background-color: forestgreen !important;
+  color: white;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+}
+
+  .row{
+    padding-left : 0;
+    padding-right : 0;
+    margin: 0;
+  }
+
+  .row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+.menuItemContainer{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+    height : 65px;
+    width : 90px;
+    color:white !important;
+    border-bottom: 1px solid rgb(56, 53, 53) !important;
+}
+  .menuItemContainer .k-menu-link {
+    white-space: normal !important;
+    text-align: center;
+    font-size: 12px !important;
+  }
+
+.menuItemContainer:hover {
+    background-color: #32d700 !important;
+    color:white !important;
+   
+}
+
+.menuItemContainer .k-icon{
+    display: none;
+}
+
+.active{
+    background-color: white;
+    color : black !important;
+    font-weight: bold;
+    width: 90px !important;
+    border-left : 6px solid #32d700 !important;
+}
+
+.menuItemContainer:hover span{
+    color:white !important;
+}
+
+.submenuContainer{
+    width: 400px;
+    height : 200px;
+    padding : 20px;
+    border : 1px solid black;
+    box-shadow: 10px 10px 8px #888888;
+}
+
+.submenuContainer .submenuHeader{
+    font-size : 22px;
+    font-weight: bold;
+    border-bottom: 3px solid black;
+    display: flex;
+    height : 40px;
+
+}
+
+.submenuContainer .submenuBody{
+    font-size : 14px;
+    font-weight: bold;
+}
+
+.submenuContainer .submenuBody ul{
+    list-style-type: none;
+    margin : 0;
+    padding : 10px;
+}
+
+.submenuContainer .submenuBody ul li{
+    display: flex;
+    height : 30px;
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+}
+
+.submenuContainer .submenuBody ul li:hover{
+    background-color: #ddd;
+    text-decoration: none !important;
+}
+
+
+/*overwrite default css */
+
+*:focus, input.form-control:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none
+}
+ 
+
+th {
+  font-size:14px;
+  font-weight: bold !important;
+}
+
+td {
+  font-size:14px;
+}
+
+::placeholder, .k-label { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #777 !important;
+  opacity: 0.9 !important;
+  font-size : 14px;
+  /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #aaa !important;
+  opacity: 0.8 !important;
+  font-size:12px;
+}
+
+
+/* validation message*/
+.help-block {
+  color : red;
+  display:block;
+}
+
+.redText {
+  color : red;
+  font-weight:bold;
+}
+
+/* home index page section */
+
+.clearfix {
+  overflow: auto;
+}
+
+.clear {
+  clear: both;
+}
+
+.header {
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.footer {
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+
+.indexContainer {
+  border: 1px solid #ddd;
+  border-top: 2px solid black;
+  box-shadow: 1px 3px #ddd;
+  padding: 15px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.pageContainer {
+  border: 1px solid #ddd;
+  border-top: 2px solid black;
+  box-shadow: 1px 3px #ddd;
+  padding: 15px;
+  padding-bottom: 30px;
+  background-color: #f7f7f7;
+}
+
+.subHeaderContainer {
+  display: flex;
+  height: 40px;
+  margin-bottom : 20px;
+  border-bottom: 1px solid #aaa;
+}
+
+.subFooterContainer {
+  height: 30px;
+}
+
+.subContent {
+  flex-basis : 96%;
+}
+
+.headerLeft, .footerLeft {
+  flex: 1;
+  text-align: left;
+}
+
+.headerRight, .footerRight {
+  flex: 1;
+  text-align: right;
+}
+  /* home index page section end */
+
+  /* button color code*/
+
+.Draft {
+  background-color: darkgray !important;
+  background-image: none !important;
+  color: white !important;
+  
+}
+
+.Requested {
+  background-color: orange !important;
+  background-image: none !important;
+  color: white !important;
+  
+}
+
+.Accepted {
+  background-color: limegreen !important;
+  background-image: none !important;
+  color: white !important;
+}
+
+.Declined {
+  background-color: red !important;
+  background-image: none !important;
+  color: white !important;
+  
+}
+.Withdrawn {
+  background-color: orangered !important;
+  background-image: none !important;
+  color: white !important;
+}
+
+.Completed {
+  background-color: darkgreen !important;
+  background-image: none !important;
+  color: white !important;
+}
+
+.statusButton {
+  width: 140px;
+  font-size: 13px !important;
+  height: 35px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

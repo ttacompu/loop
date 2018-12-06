@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col">
+    <div class="clearfix">
+      <div class="float-left header-left">
+        <h3>Search result for :  {{searchText}} ({{searchResultCount}} results)</h3>
+      </div>
+
+      <div class="float-right header-right">
+        <div class="buttonsContainer">
+          <button #myBackBttn type="button" kendoButton (click)="GoBack($event)">Go Back</button>
+        </div>
+      </div>
+    </div>   
+    <div class="mainSearchResultContainer">
+      <div class="searchResultContainer" *ngFor="let item of searchResults">
+        <div class="searchSubHeader">
+          <div>
+            <strong><a href="#" (click)="GotoFeedbackRequest($event, item.id)">{{item.requesterFullName}}</a> - Requested Feedback on {{ item.createdOn | date:"MMMM d, y"}} </strong>
+            <!--<strong *ngIf="userClearyKey==item.requesterClearyKey"><a href="#" (click)="GotoFeedbackRequest($event, item.id)">{{item.requesterFullName}}</a> - Requested Feedback on {{ item.createdOn | date:"MMMM d, y"}} </strong>
+            <strong *ngIf="userClearyKey==item.contributorClearyKey"><a href="#" (click)="GotoFeedbackRequest($event, item.id)">{{item.requesterFullName}}</a> - Provided Feedback on {{ item.createdOn | date:"MMMM d, y"}} </strong>
+            <strong *ngIf="!(userClearyKey==item.requesterClearyKey || userClearyKey==item.contributorClearyKey)"><a href="#" (click)="GotoFeedbackRequest($event, item.id)">{{item.requesterFullName}}</a> - Requested Feedback from {{item.contributorFullName}} on {{ item.createdOn | date:"MMMM d, y"}} </strong>-->
+          </div>
+        </div>
+        <div class="SearchResultSubContent">
+          <div class="searchItemContainer">
+            <div class="searchItemTitle">
+              <strong>Request for Feedback</strong>
+            </div>
+            <div class="searchItemData">
+              <span [innerHTML]="highlight(item.requestDetails)"></span>
+            </div>
+          </div>
+          <div class="searchItemContainer" *ngFor="let note of item.notes; let i = index">
+            <div class="searchItemTitle">
+              <strong *ngIf="i==0">Note </strong>
+            </div>
+            <div class="searchItemData">
+              <b><span [innerHTML]="highlight(note.title)"></span></b><br />
+              <span [innerHTML]="highlight(note.details)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="searchResultContainer" *ngIf="searchResultCount==0">
+        <div class="searchSubHeader">
+          <div>
+            <strong>No Results Found</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
